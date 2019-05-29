@@ -13,8 +13,7 @@ int main(int argc, char *argv[]) {
 	printf("**************\n");
 	
 	do{
-		if(count==0)
-			temp=0;
+		if(count==0)	temp=0;
 		else
 			temp=1;
 			
