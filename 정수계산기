@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+	char op;
+	int num1,num2,count,temp=0; 
+	
+	printf("**************\n");
+	printf(" A - Add      \n");
+	printf(" S - Subtract \n");
+	printf(" M - Multiply \n");
+	printf(" D - Divide   \n");
+	printf("**************\n");
+	
+	do{
+		if(count==0)
+			temp=0;
+		else
+			temp=1;
+			
+		if(temp){
+			printf("잘못된 입력입니다.\n");
+			count=0;
+		}
+		
+		printf("\n연산자를 입력하세요 : ");
+		scanf("%c",&op);
+		rewind(stdin);
+		
+		if(op == 'Q')	break;
+		if(op=='A'||op=='S'||op=='M'||op=='D'){
+			printf("두 정수를 공백을 기준으로 입력하세요 : ");
+			num1=0,num2=0;
+			scanf("%d %d",&num1,&num2);
+			rewind(stdin);
+			cal(op,num1,num2);
+		}
+		else
+			count++;
+		
+	}while(1);
+	printf("\n프로그램을 종료합니다.\n");
+	
+	return 0;
+}
+
+void cal(char op,int num1,int num2){
+  if(op == 'A')		printf("%d + %d = %d\n",num1,num2,num1+num2);
+	else if(op == 'S')	printf("%d - %d = %d\n",num1,num2,num1-num2);
+	else if(op == 'M')	printf("%d x %d = %d\n",num1,num2,num1*num2);
+	else if(op == 'D')	printf("%d / %d = %.3f\n",num1,num2,(float)num1/(float)num2);
+}
